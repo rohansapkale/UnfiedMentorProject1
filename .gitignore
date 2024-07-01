@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# Built files
+/build
+/dist
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Specific to Tailwind CSS
+.tailwind-cache/
+
+# Ignore package-lock.json if you're managing dependencies with npm
+package-lock.json
+
+# Ignore yarn.lock if you're managing dependencies with yarn
+yarn.lock

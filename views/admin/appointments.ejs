@@ -1,0 +1,43 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Manage Appointments</h2>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead class="bg-blue-500 text-white">
+                <tr>
+                    <th class="px-4 py-2">Student Name</th>
+                    <th class="px-4 py-2">Teacher Name</th>
+                    <th class="px-4 py-2">Time</th>
+                    <th class="px-4 py-2">Message</th>
+                    <th class="px-4 py-2">Status</th>
+                    <th class="px-4 py-2">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <% appointments.forEach(appointment => { %>
+                    <tr class="border-t">
+                        <td class="px-4 py-3"><%= appointment.studentId ? appointment.studentId.name : 'Unknown' %></td>
+                        <td class="px-4 py-3"><%= appointment.teacherId ? appointment.teacherId.name : 'Unknown' %></td>
+                        <td class="px-4 py-3"><%= appointment.time ? appointment.time.toDateString() : 'Unknown' %></td>
+                        <td class="px-4 py-3"><%= appointment.message %></td>
+                        <td class="px-4 py-3"><%= appointment.status %></td>
+                        <td class="px-4 py-3">
+                            <form action="/admin/appointments/<%= appointment._id %>/update-status" method="POST">
+                                <select name="status" onchange="this.form.submit()"
+                                    class="block w-full bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500">
+                                    <option value="pending" <% if (appointment.status === 'pending') { %> selected <% } %>>Pending</option>
+                                    <option value="approved" <% if (appointment.status === 'approved') { %> selected <% } %>>Approved</option>
+                                    <option value="cancelled" <% if (appointment.status === 'cancelled') { %> selected <% } %>>Cancelled</option>
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>

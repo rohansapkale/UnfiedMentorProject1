@@ -1,0 +1,31 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<h2 class="text-2xl font-bold mb-4">My Appointments</h2>
+<table class="table-auto w-full bg-white rounded-lg shadow-md">
+    <thead class="bg-blue-500 text-white">
+        <tr>
+            <th class="px-4 py-2">Student</th>
+            <th class="px-4 py-2">Appointment Time</th>
+            <th class="px-4 py-2">Message</th>
+            <th class="px-4 py-2">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (appointments && appointments.length > 0) { %>
+            <% appointments.forEach(appointment => { %>
+                <tr class="text-center border-t">
+                    <td class="px-4 py-2"><%= appointment.studentId ? appointment.studentId.name : 'N/A' %></td>
+                    <td class="px-4 py-2"><%= new Date(appointment.time).toLocaleString() %></td>
+                    <td class="px-4 py-2"><%= appointment.message || 'No message provided' %></td>
+                    <td class="px-4 py-2"><%= appointment.status %></td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="4" class="px-4 py-2">No appointments found</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<%- include('../partials/footer') %>
