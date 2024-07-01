@@ -1,7 +1,47 @@
+<html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
+<style>
+    /* Custom styles */
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3f4f6;
+        margin: 0;
+    }
+    .back-button-container {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1000;
+    }
+    .back-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #3b82f6; /* Tailwind's blue-500 */
+        color: white;
+        border-radius: 0.375rem; /* Tailwind's rounded-md */
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+        background-color: #2563eb; /* Tailwind's blue-600 */
+    }
+</style>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<body>
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">Go Back</button>
+    </div>
 <h2 class="text-2xl font-bold mb-4">Manage Teachers</h2>
 
 <div class="overflow-x-auto">
@@ -34,3 +74,5 @@
         </tbody>
     </table>
 </div>
+</body>
+</html>
