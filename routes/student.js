@@ -75,7 +75,7 @@ router.get('/dashboard', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
+//viw appointment
 // Book Appointment
 router.get('/book-appointment/:teacherId', (req, res) => {
     res.render('student/book-appointment', { teacherId: req.params.teacherId });
@@ -99,14 +99,13 @@ router.post('/book-appointment/:teacherId', async (req, res) => {
         await newAppointment.save();
 
         // Redirect to the view-appointments page with the teacher ID
-        res.redirect(`/student/view-appointments/${teacherId}`);
+        res.redirect(`/student/view-appointments`);
     } catch (error) {
         console.error('Error booking appointment:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-// View Appointments
 // View Appointments
 router.get('/view-appointments', async (req, res) => {
     try {
