@@ -28,7 +28,7 @@
         window.history.back();
     }
 </script>
-<body class="bg-gray-100">
+<body class="bg-gray-600">
     <div class="container mx-auto p-4  items-center">
         <!-- Your content here -->
         <button class="back-button" onclick="goBack()">Go Back</button>
@@ -50,10 +50,10 @@
                 <tbody class="divide-y divide-gray-200">
                     <% appointments.forEach(appointment => { %>
                         <tr class="bg-white">
-                            <td class="px-6 py-4 whitespace-nowrap"><%= appointment.teacherId ? appointment.teacherId.name : 'Unknown' %></td>
-                            <td class="px-6 py-4 whitespace-nowrap"><%= appointment.time ? new Date(appointment.time).toDateString() : 'Unknown' %></td>
-                            <td class="px-6 py-4 whitespace-nowrap"><%= appointment.message %></td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 bg-gray-100 whitespace-nowrap"><%= appointment.teacherId ? appointment.teacherId.name : 'Unknown' %></td>
+                            <td class="px-6 py-4 bg-gray-100 whitespace-nowrap"><%= appointment.time ? new Date(appointment.time).toDateString() : 'Unknown' %></td>
+                            <td class="px-6 py-4 bg-gray-100 whitespace-nowrap"><%= appointment.message %></td>
+                            <td class="px-6 py-4 bg-gray-100 whitespace-nowrap">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                     <% if (appointment.status === 'pending') { %>
                                         bg-yellow-500 text-white
